@@ -37,8 +37,18 @@ client.on('message', message => {
         return
     } else if (command === 'spam') {
         const owner = client.users.fetch(Owner)
+        
+        // The error that happened here is the "!message.author" parameter, you should remove the "!"
+        // The next error is the "===", you can just remove one of them and replace it with "!"
+        // After that, the error should be fixed and the code will be stated down below the error code
 
-        if (!message.author === owner) {
+        // Error code
+        // if (!message.author === owner) {
+        //     return message.reply('nu spam UnU');
+        // }
+
+        // Correct code
+        if (message.author !== owner) {
             return message.reply('nu spam UnU');
         }
 
